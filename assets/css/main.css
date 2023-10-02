@@ -1125,6 +1125,11 @@ button, input, textarea, select {
 .header {
   background: var(--header-bg);
 }
+@media (max-width: 575.98px) {
+  .header {
+    width: 100px;
+  }
+}
 
 .top-bar {
   padding: 30px 0px;
