@@ -1118,7 +1118,7 @@ button, input, textarea, select {
     --grid-gutter-y: 90px;
   }
 }
-.top-act__btn, .top-act__group, .top-act, .navbar__list, .top-bar {
+.top-act__btn, .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
   display: flex;
   align-items: center;
 }
@@ -1128,6 +1128,7 @@ button, input, textarea, select {
 }
 
 .top-bar {
+  position: relative;
   padding: 30px 0px;
 }
 @media (max-width: 991.98px) {
@@ -1163,20 +1164,25 @@ button, input, textarea, select {
     display: none;
   }
 }
-.navbar__list {
-  gap: 30px;
+.navbar__item:first-child a {
+  padding-left: 0px;
+}
+.navbar__item:last-child a {
+  padding-right: 0px;
+}
+.navbar__item:hover .dropdown {
+  display: block;
 }
 .navbar__link {
+  gap: 6px;
+  height: 50px;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 146.667%;
+  padding: 0px 15px;
 }
 .navbar__arrow {
   margin-top: 2px;
-}
-.navbar li {
-  display: flex;
-  gap: 6px;
 }
 
 .top-act {
@@ -1239,6 +1245,9 @@ html.dark {
   --top-act-group-bg: #292E39;
   --top-act-group-shadow: rgba(0, 0, 0, 0.20);
   --top-act-btn-separate: #EDEDF6;
+  --dropdown-bg: #2f3441;
+  --dropdown-shadow: rgba(23, 28, 40, 0.40);
+  --dropdown-arrow-icon: brightness(0) saturate(100%) invert(18%) sepia(12%) saturate(932%) hue-rotate(185deg) brightness(95%) contrast(91%);
 }
 
 html {
@@ -1250,6 +1259,8 @@ html {
   --top-act-group-bg: #fff;
   --top-act-group-shadow: rgba(237, 237, 246, 0.2);
   --top-act-btn-separate: #ededf6;
+  --dropdown-bg: #fff;
+  --dropdown-shadow: rgba(200, 200, 200, 0.4);
 }
 @media (max-width: 991.98px) {
   html {
@@ -1288,6 +1299,28 @@ html {
   .logo__img {
     width: 24px;
   }
+}
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  padding-top: 54px;
+  display: none;
+}
+.dropdown__inner {
+  position: relative;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--dropdown-bg);
+  box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
+}
+.dropdown__inner::before {
+  content: url("../icons/dropdown-arrow.svg");
+  filter: var(--dropdown-arrow-icon);
+  position: absolute;
+  top: -13px;
+  left: var(--arrow-left-pos);
+  translate: -50%;
 }
 
 /*# sourceMappingURL=main.css.map */
