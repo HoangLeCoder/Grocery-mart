@@ -6,8 +6,33 @@ html {
     font-size: 62.5%;
 }
 
+:root {
+    --text-color: #1A162E;
+    --icon-color:  brightness(0) saturate(100%) invert(5%) sepia(57%) saturate(2458%) hue-rotate(236deg) brightness(94%) contrast(91%);
+}
+
 body {
     font-size: 1.6rem;
     font-family: Gordita, sans-serif;
+    color: var(--text-color);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.icon {
+    filter: var(--icon-color);
+}
+
+button, input, textarea, select {
+    color: inherit;
+    font-family: inherit;
+}
